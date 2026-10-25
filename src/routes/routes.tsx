@@ -11,6 +11,7 @@ import AdminRoomsPage from "../pages/adminRoomsPage";
 import RoomFormPage from "../pages/roomFormPage";
 import UnauthorizedPage from "../pages/unauthorizedPage";
 import NotFoundPage from "../pages/notFoundPage";
+import UserProtected, { AdminProtected } from "../components/protected";
 
 const routes=createBrowserRouter(
     [
@@ -39,29 +40,29 @@ const routes=createBrowserRouter(
                 },
                 {
                     path:"/rooms/:roomId/book",
-                    element:<BookingFormPage />
+                    element:<UserProtected><BookingFormPage /></UserProtected>
 
                 },
                 {
                     path:"/my-bookings",
-                    element:<MyBookingsPage />
+                    element:<UserProtected><MyBookingsPage /></UserProtected>
                 },
                 {
                     path:"/admin/bookings",
-                    element:<AdminBookingsPage />
+                    element:<AdminProtected><AdminBookingsPage /></AdminProtected>
                 },
                 {
                     path:"/admin/rooms",
-                    element:<AdminRoomsPage />
+                    element:<AdminProtected><AdminRoomsPage /></AdminProtected>
 
                 },
                 {
                     path:"/admin/rooms/new",
-                    element:<RoomFormPage />
+                    element:<AdminProtected><RoomFormPage /></AdminProtected>
                 },
                 {
                     path:"/admin/rooms/:roomId/edit",
-                    element:<RoomFormPage />
+                    element:<AdminProtected><RoomFormPage /></AdminProtected>
 
                 },
                 {

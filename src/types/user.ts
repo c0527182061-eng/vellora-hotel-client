@@ -1,5 +1,5 @@
 
-export type Role = 'CUSTOMER' | 'ADMIN';
+export type Role = 'CUSTOMER' | 'ADMIN'| 'GUEST';
 
 
 export interface User {
@@ -11,6 +11,13 @@ export interface User {
 }
 
 
+export type UserContextType = {
+  user: User | null;
+  isLoggedIn:boolean,
+  isLoading:boolean,
+  login: (user: User) => void;
+  logout:()=>void
+};
 
 export interface RegisterRequest {
   fullName: string;

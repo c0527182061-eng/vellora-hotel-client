@@ -2,7 +2,7 @@
 import type { Room, RoomFormFields, RoomUpdateFields, RoomsQuery } from "../types/room"
 import { api } from "./api"
 
-const getRooms=async(filters:RoomsQuery={})=>
+const getRooms=async(filters:RoomsQuery)=>
 {
 const response=await api.get<{ items: Room[] }>("/rooms",{params:{...filters,limit:50}})
 return response.data.items

@@ -17,6 +17,13 @@ export interface Room {
   createdAt: string;
   updatedAt: string;
 }
+export interface RoomCard {
+  roomNumber:number,
+  name: string;
+  type: RoomType;
+  description: string | null;
+  imageUrl: string | null; 
+}
 
 export interface RoomsQuery {
   checkIn?: string; 
