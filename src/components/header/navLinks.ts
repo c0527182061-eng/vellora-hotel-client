@@ -12,6 +12,6 @@ export const navLinks: NavItem[] = [
     { to: "/register", label: "הרשמה", roles: ["GUEST"] },
     { to: "/login", label: "התחברות", roles: ["GUEST"] },
     { to: "/my-bookings", label: "ההזמנות שלי", roles: ["CUSTOMER"] },
-    { to: "/ADMIN/rooms", label: "ניהול חדרים", roles: ["ADMIN"] },
-    { to: "/ADMIN/bookings", label: "ניהול הזמנות", roles: ["ADMIN"] },
+    { to: "/admin/rooms", label: "ניהול חדרים", roles: ["ADMIN"] },
+    { to: "/admin/bookings", label: "ניהול הזמנות", roles: ["ADMIN"] },
 ];

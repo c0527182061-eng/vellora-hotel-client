@@ -64,11 +64,7 @@ const routes=createBrowserRouter(
                     path:"/admin/rooms/:roomId/edit",
                     element:<AdminProtected><RoomFormPage /></AdminProtected>
 
-                },
-                {
-                    path:"/unauthorized",
-                    element:<UnauthorizedPage />
-                },
+                },,
                 {
                     path:"*",
                     element:<NotFoundPage />

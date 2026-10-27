@@ -169,7 +169,7 @@ export default function RegisterPage() {
           </button>
           {registerMutation.error && (
             <p className="text-sm text-red-600">
-              {registerMutation.error.response?.data?.error?.message ?? "אין חיבור לשרת. נסי שוב בעוד רגע"}
+              {registerMutation.error.response?.data?.error?.message ?? "אין חיבור לשרת. נסה שוב בעוד רגע"}
             </p>
           )}
         </form>

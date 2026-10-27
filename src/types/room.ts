@@ -1,6 +1,9 @@
 
-export type RoomType = 'SINGLE' | 'DOUBLE' | 'FAMILY' | 'SUITE';
-export type RoomStatus = 'AVAILABLE' | 'UNAVAILABLE';
+export const ROOM_TYPES = ["SINGLE", "DOUBLE", "FAMILY", "SUITE"] as const
+export type RoomType = typeof ROOM_TYPES[number]
+
+export const ROOM_STATUSES = ["AVAILABLE", "UNAVAILABLE"] as const
+export type RoomStatus = typeof ROOM_STATUSES[number]
 export type RoomSort = 'roomNumber_asc' | 'price_asc' | 'price_desc' | 'name_asc';
 
 export interface Room {
@@ -18,7 +21,7 @@ export interface Room {
   updatedAt: string;
 }
 export interface RoomCard {
-  roomNumber:number,
+  id:string,
   name: string;
   type: RoomType;
   description: string | null;
