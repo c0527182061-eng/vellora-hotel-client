@@ -1,5 +1,5 @@
 
-import { AuthContext, userContext } from '../../context/userContext'
+import { AuthContext} from '../../context/userContext'
 import { navLinks } from './navLinks';
 import { Link, useLocation } from 'react-router';
 

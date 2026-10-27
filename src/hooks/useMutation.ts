@@ -3,7 +3,7 @@ import { login, register } from "../api/auth"
 import type { LoginRequest, RegisterRequest } from "../types/user"
 import { createBooking, decideBooking } from "../api/booking"
 import type { CreateBookingRequest, DecideBookingRequest } from "../types/booking"
-import { createRoom, updateRoom } from "../api/room"
+import { createRoom, deleteRoom, updateRoom } from "../api/room"
 import type { RoomForm } from "../pages/roomFormPage"
 
 
@@ -53,4 +53,12 @@ export const roomForm = (type: string,id:string="") => {
         }
     )
 
+}
+
+export const deleteRoom1 = () => {
+    return useMutation(
+        {
+            mutationFn: (id:string)=>deleteRoom(id)
+        }
+    )
 }

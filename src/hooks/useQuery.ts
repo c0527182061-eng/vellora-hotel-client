@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import { getRoomById, getRooms } from "../api/room"
-import type { Room, RoomsQuery } from "../types/room"
-import { string } from "yup"
+import type {  RoomsQuery } from "../types/room"
 import { getAllBookings, getMyBookings } from "../api/booking"
 import type { MyBookingsQuery } from "../types/booking"
-import type { User } from "../types/user"
+
 
 
 
@@ -45,6 +44,16 @@ export const getAllBookings1= () => {
         {
             queryKey: ["getAllBookings"],
             queryFn: () =>getAllBookings()
+        }
+    )
+}
+
+
+export const getAllRooms1= (filter:RoomsQuery={}) => {
+    return useQuery(
+        {
+            queryKey: ["getAllRooms",filter],
+            queryFn: () =>getRooms(filter)
         }
     )
 }

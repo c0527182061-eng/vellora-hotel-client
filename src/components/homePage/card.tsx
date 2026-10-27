@@ -4,7 +4,7 @@ import type { RoomCard } from '../../types/room'
 
 export default function Card(r: RoomCard) {
 
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     return (
         <Link to={`/rooms/${(r.id)}?checkIn=${searchParams.get("checkIn") ?? undefined}&checkOut=${ searchParams.get("checkOut") ?? undefined}`}>

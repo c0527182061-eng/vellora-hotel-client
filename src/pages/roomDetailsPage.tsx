@@ -6,7 +6,7 @@ import { AuthContext } from '../context/userContext';
 export default function RoomDetailsPage() {
   const { roomId } = useParams();
   const { data, isLoading:isLoad, error } = getRoomsById(roomId ? roomId : "");
-   const [searchParams, setSearchParams] = useSearchParams();
+   const [searchParams] = useSearchParams();
    const { user, isLoading } = AuthContext()
   if (isLoad)
     return (

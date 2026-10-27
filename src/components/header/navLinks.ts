@@ -14,4 +14,5 @@ export const navLinks: NavItem[] = [
     { to: "/my-bookings", label: "ההזמנות שלי", roles: ["CUSTOMER"] },
     { to: "/admin/rooms", label: "ניהול חדרים", roles: ["ADMIN"] },
     { to: "/admin/bookings", label: "ניהול הזמנות", roles: ["ADMIN"] },
-];
+    { to: "/admin/rooms/new", label: "הוספת חדר חדש", roles: ["ADMIN"] },
+]

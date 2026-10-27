@@ -96,7 +96,7 @@ export const bookingSchema: yup.ObjectSchema<CreateBookingRequest> =
 export default function Form() {
 
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams] = useSearchParams()
     const navigate = useNavigate()
     const { roomId } = useParams()
 
@@ -116,7 +116,7 @@ export default function Form() {
 
     const checkIn = watch("checkIn")
     const checkOut = watch("checkOut")
-    const { data, isLoading: isLoad, error } = getRoomsById(
+    const { data} = getRoomsById(
         roomId ? roomId : ""
     )
 
@@ -132,7 +132,7 @@ export default function Form() {
 
     const submit = (data: CreateBookingRequest) => {
         createBook1.mutate(data, {
-            onSuccess: (response) => {
+            onSuccess: () => {
                 navigate("/my-bookings")
             },
         })

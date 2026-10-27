@@ -9,7 +9,6 @@ import MyBookingsPage from "../pages/myBookingsPage";
 import AdminBookingsPage from "../pages/adminBookingsPage";
 import AdminRoomsPage from "../pages/adminRoomsPage";
 import RoomFormPage from "../pages/roomFormPage";
-import UnauthorizedPage from "../pages/unauthorizedPage";
 import NotFoundPage from "../pages/notFoundPage";
 import UserProtected, { AdminProtected } from "../components/protected";
 
@@ -64,7 +63,7 @@ const routes=createBrowserRouter(
                     path:"/admin/rooms/:roomId/edit",
                     element:<AdminProtected><RoomFormPage /></AdminProtected>
 
-                },,
+                },
                 {
                     path:"*",
                     element:<NotFoundPage />

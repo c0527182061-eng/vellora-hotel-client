@@ -1,5 +1,5 @@
 import type { HealthResponse } from "../types/common"
-import type { AuthResponse, User ,RegisterRequest, LoginRequest, MeResponse} from "../types/user"
+import type { AuthResponse ,RegisterRequest, LoginRequest, MeResponse} from "../types/user"
 import { api } from "./api"
 
 

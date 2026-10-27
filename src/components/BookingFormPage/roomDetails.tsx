@@ -64,7 +64,7 @@ export default function RoomDetails() {
               <img
                 src={
                   data?.imageUrl
-                    ? `${import.meta.env.VITE_API_URL}${data.imageUrl}`
+                    ? `${data.imageUrl}`
                     : noImage
                 }
                 alt="תמונת החדר"
