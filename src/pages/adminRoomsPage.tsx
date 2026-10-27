@@ -20,6 +20,7 @@ export default function AdminRoomsPage() {
     deleteRoom.mutate(id, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["getAllRooms"] })
+          setDeleteErrorRoomId(null)
       },
           onError: () => {
       setDeleteErrorRoomId(id)
