@@ -112,63 +112,87 @@ export default function Filter() {
         },
     })
 
-
     return (
-
         <aside dir="rtl" className="w-full">
-            <div className="overflow-hidden rounded-2xl border border-[#e5dac6] bg-[#fffdf8] shadow-[0_8px_30px_rgba(83,66,38,0.06)]">
-                <div className="border-b border-[#e9decb] bg-[#f7f1e6] px-5 py-4">
-                    <h2 className="font-serif text-xl font-semibold text-[#51432e]">
-                        סינון חדרים
-                    </h2>
-                    <p className="mt-1 text-sm text-[#95866e]">
-                        מצאו את החדר המתאים לכם
-                    </p>
+            <div className="overflow-hidden rounded-3xl border border-[#e8dccb] bg-[#fffdf9] shadow-[0_12px_36px_rgba(61,48,40,0.08)] transition-shadow duration-300 hover:shadow-[0_16px_42px_rgba(61,48,40,0.11)]">
+                <div className="relative overflow-hidden border-b border-[#e9decb] bg-gradient-to-br from-[#f8f0e4] via-[#f5ecdf] to-[#eee0cc] px-5 py-6">
+                    <div className="pointer-events-none absolute -left-8 -top-10 h-32 w-32 rounded-full border border-[#b08d57]/20" />
+                    <div className="pointer-events-none absolute -left-2 -top-4 h-20 w-20 rounded-full border border-[#b08d57]/20" />
+
+                    <div className="relative flex items-center gap-3">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#d9c5a5] bg-white/70 shadow-sm">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                className="h-6 w-6 text-[#9b794b]"
+                            >
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 5h16M7 12h10M10 19h4M6 5l3 7v7m9-14-3 7v7" />
+                            </svg>
+                        </div>
+
+                        <div className="min-w-0">
+                            <p className="mb-1 text-[10px] font-semibold tracking-[0.24em] text-[#a08355]">
+                                VELLORA HOTEL
+                            </p>
+                            <h2 className="font-serif text-xl font-semibold text-[#51432e]">
+                                סינון חדרים
+                            </h2>
+                            <p className="mt-1 text-sm leading-5 text-[#95866e]">
+                                מצאו את החדר המתאים לכם
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <form
                     onSubmit={handleSubmit(onSearch)}
-                    className="space-y-5 p-5"
+                    className="space-y-5 p-4 sm:p-5"
                 >
-                    <div>
-                        <label className="text-sm font-medium text-[#665640]">
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-[#665640]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b08d57]" />
                             תאריך כניסה
                         </label>
                         <input
                             type="date"
                             {...register("checkIn")}
-                            className="mt-2 w-full rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm text-[#51432e] outline-none transition focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
+                            className="w-full rounded-xl border border-[#e6dac8] bg-white px-3 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
                         />
                         {errors.checkIn?.message && (
-                            <p className="mt-1 text-xs text-red-600">
+                            <p className="rounded-lg bg-red-50 px-3 py-2 text-xs leading-5 text-red-600">
                                 {errors.checkIn.message}
                             </p>
                         )}
                     </div>
 
-                    <div>
-                        <label className="text-sm font-medium text-[#665640]">
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-[#665640]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b08d57]" />
                             תאריך יציאה
                         </label>
                         <input
                             type="date"
                             {...register("checkOut")}
-                            className="mt-2 w-full rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm text-[#51432e] outline-none transition focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
+                            className="w-full rounded-xl border border-[#e6dac8] bg-white px-3 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
                         />
                         {errors.checkOut?.message && (
-                            <p className="mt-1 text-xs text-red-600">
+                            <p className="rounded-lg bg-red-50 px-3 py-2 text-xs leading-5 text-red-600">
                                 {errors.checkOut.message}
                             </p>
                         )}
                     </div>
 
-                    <div>
-                        <label className="text-sm font-medium text-[#665640]">
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-[#665640]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b08d57]" />
                             סוג חדר
                         </label>
                         <select
                             {...register("type")}
-                            className="mt-2 w-full rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm text-[#51432e] outline-none focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
+                            className="w-full cursor-pointer rounded-xl border border-[#e6dac8] bg-white px-3 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
                         >
                             <option value="">כל סוגי החדרים</option>
                             {ROOM_TYPES.map(r => (
@@ -177,13 +201,14 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div>
-                        <label className="text-sm font-medium text-[#665640]">
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-[#665640]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b08d57]" />
                             מיון לפי
                         </label>
                         <select
                             {...register("sort")}
-                            className="mt-2 w-full rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm text-[#51432e] outline-none focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
+                            className="w-full cursor-pointer rounded-xl border border-[#e6dac8] bg-white px-3 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
                         >
                             <option value="">ברירת מחדל</option>
                             {ROOM_SORTS.map(r => (
@@ -192,71 +217,85 @@ export default function Filter() {
                         </select>
                     </div>
 
-                    <div>
-                        <label className="text-sm font-medium text-[#665640]">
+                    <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-[#665640]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#b08d57]" />
                             מספר אורחים
                         </label>
                         <input
                             type="number"
                             placeholder="כמה אורחים?"
                             {...register("guests")}
-                            className="mt-2 w-full rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm outline-none focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
+                            className="w-full rounded-xl border border-[#e6dac8] bg-white px-3 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 placeholder:text-[#b2a696] hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
                         />
                         {errors.guests?.message && (
-                            <p className="mt-1 text-xs text-red-600">
+                            <p className="rounded-lg bg-red-50 px-3 py-2 text-xs leading-5 text-red-600">
                                 {errors.guests.message}
                             </p>
                         )}
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3">
-                        <div>
-                            <label className="text-sm font-medium text-[#665640]">
-                                מחיר מינימלי
-                            </label>
-                            <input
-                                type="number"
-                                {...register("minPrice")}
-                                className="mt-2 w-full min-w-0 rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm outline-none focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
-                            />
-                            {errors.minPrice?.message && (
-                                <p className="mt-1 text-xs text-red-600">
-                                    {errors.minPrice.message}
-                                </p>
-                            )}
-                        </div>
+                    <div className="rounded-2xl border border-[#eee4d6] bg-[#faf6ef] p-3.5">
+                        <p className="mb-3 text-sm font-semibold text-[#665640]">
+                            טווח מחירים
+                        </p>
 
-                        <div>
-                            <label className="text-sm font-medium text-[#665640]">
-                                מחיר מקסימלי
-                            </label>
-                            <input
-                                type="number"
-                                {...register("maxPrice")}
-                                className="mt-2 w-full min-w-0 rounded-lg border border-[#e5dac6] bg-white px-3 py-3 text-sm outline-none focus:border-[#aa8b50] focus:ring-2 focus:ring-[#aa8b50]/15"
-                            />
-                            {errors.maxPrice?.message && (
-                                <p className="mt-1 text-xs text-red-600">
-                                    {errors.maxPrice.message}
-                                </p>
-                            )}
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="min-w-0 space-y-2">
+                                <label className="text-xs font-medium text-[#8a7965]">
+                                    מחיר מינימלי
+                                </label>
+                                <input
+                                    type="number"
+                                    {...register("minPrice")}
+                                    className="w-full min-w-0 rounded-xl border border-[#e6dac8] bg-white px-2.5 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
+                                />
+                                {errors.minPrice?.message && (
+                                    <p className="text-xs leading-5 text-red-600">
+                                        {errors.minPrice.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className="min-w-0 space-y-2">
+                                <label className="text-xs font-medium text-[#8a7965]">
+                                    מחיר מקסימלי
+                                </label>
+                                <input
+                                    type="number"
+                                    {...register("maxPrice")}
+                                    className="w-full min-w-0 rounded-xl border border-[#e6dac8] bg-white px-2.5 py-3 text-sm text-[#51432e] shadow-sm outline-none transition duration-200 hover:border-[#cbb28d] focus:border-[#aa8b50] focus:ring-4 focus:ring-[#aa8b50]/10"
+                                />
+                                {errors.maxPrice?.message && (
+                                    <p className="text-xs leading-5 text-red-600">
+                                        {errors.maxPrice.message}
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full rounded-lg bg-[#9e8148] px-5 py-3.5 font-semibold text-white shadow-sm transition duration-300 hover:bg-[#826839] hover:shadow-md focus:outline-none focus:ring-4 focus:ring-[#9e8148]/20"
+                        className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-l from-[#8e7041] via-[#aa8b50] to-[#b99a61] px-5 py-3.5 font-semibold text-white shadow-[0_6px_16px_rgba(142,112,65,0.22)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_22px_rgba(142,112,65,0.3)] focus:outline-none focus:ring-4 focus:ring-[#9e8148]/25 active:translate-y-0"
                     >
-                        חפש התאמה
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.8"
+                                className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1"
+                            >
+                                <circle cx="11" cy="11" r="6.5" />
+                                <path strokeLinecap="round" d="m16 16 4 4" />
+                            </svg>
+                            חפש התאמה
+                        </span>
                     </button>
-
                 </form>
             </div>
         </aside>
-
-
-
-
-
     )
 }

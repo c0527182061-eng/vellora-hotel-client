@@ -1,4 +1,3 @@
-
 import type { LoginRequest } from '../types/user';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -6,8 +5,6 @@ import * as yup from "yup";
 import { AuthContext } from '../context/userContext';
 import { Link, useNavigate } from 'react-router';
 import { loginUseMutation } from '../hooks/useMutation';
-
-
 
 export const loginSchema: yup.ObjectSchema<LoginRequest> = yup.object({
   email: yup
@@ -36,8 +33,6 @@ export default function LoginPage() {
     )
   }
 
-
-
   const {
     register,
     handleSubmit,
@@ -47,19 +42,38 @@ export default function LoginPage() {
   });
 
   return (
-    <div dir="rtl" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#f7f4ed] px-4 py-14 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(201,177,124,0.16),_transparent_50%),radial-gradient(ellipse_at_bottom_right,_rgba(223,211,185,0.35),_transparent_50%)]" />
+    <div dir="rtl" className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-[#faf7f2] via-[#f7f1e6] to-[#eee3d0] px-4 py-14 sm:px-6">
+      {/* רקע דקורטיבי */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(201,177,124,0.22),transparent_45%),radial-gradient(ellipse_at_bottom_right,rgba(223,211,185,0.45),transparent_50%)]" />
+      <div className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full border border-[#b08d57]/10 sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute -right-14 top-26 h-52 w-52 rounded-full border border-[#b08d57]/10 sm:h-72 sm:w-72" />
+      <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full border border-[#b08d57]/10 sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,transparent_48%,rgba(176,141,87,0.035)_48.2%,transparent_48.5%)]" />
 
       <div className="relative w-full max-w-[460px]">
-        <div className="absolute -inset-2 rounded-[28px] border border-[#d6c49d]/40" />
+
+        <div className="absolute -inset-2 rounded-[32px] border border-[#d6c49d]/50 transition-all duration-500 group-hover:border-[#b08d57]/60" />
+        <div className="absolute -inset-4 rounded-[36px] border border-[#d6c49d]/20" />
 
         <form
           onSubmit={handleSubmit(submit)}
-          className="relative overflow-hidden rounded-2xl border border-[#e5dcc9] bg-[#fffefa] px-7 py-10 shadow-[0_24px_70px_-24px_rgba(92,73,39,0.22)] sm:px-11 sm:py-12"
+          className="group relative overflow-hidden rounded-[24px] border border-[#e5dcc9] bg-[#fffefa]/95 px-7 py-10 shadow-[0_30px_80px_-28px_rgba(92,73,39,0.28)] backdrop-blur-sm transition-all duration-500 hover:shadow-[0_35px_90px_-28px_rgba(92,73,39,0.34)] sm:px-11 sm:py-12"
         >
-          <div className="absolute right-0 top-0 h-1 w-full bg-gradient-to-l from-[#a88a50] via-[#e6d7b5] to-[#a88a50]" />
 
-          <div className="mb-10 text-center">
+          <div className="absolute right-0 top-0 h-1 w-full bg-gradient-to-l from-[#a88a50] via-[#f0e2bf] to-[#a88a50]" />
+          <div className="pointer-events-none absolute -left-12 -top-12 h-32 w-32 rounded-full bg-[#d9c9a5]/10 blur-2xl transition-all duration-700 group-hover:bg-[#d9c9a5]/25" />
+
+          <div className="relative mb-10 text-center">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#d8c49b]/50 bg-gradient-to-br from-[#faf4e7] to-[#eee2c9] text-[#a88a50] shadow-[0_8px_20px_rgba(176,141,87,0.12)] transition-all duration-500 group-hover:rotate-3 group-hover:scale-105">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.4" stroke="currentColor" className="h-8 w-8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+            </div>
+
+            <p className="mb-2 text-[10px] font-medium tracking-[0.35em] text-[#a88a50]">
+              WELCOME TO VELLORA
+            </p>
+
             <h1 className="text-3xl font-semibold tracking-tight text-[#423a2d] sm:text-[34px]">
               התחברות
             </h1>
@@ -69,62 +83,103 @@ export default function LoginPage() {
             </p>
 
             <div className="mx-auto mt-6 flex items-center justify-center gap-2">
-              <span className="h-px w-10 bg-[#d8c49b]" />
-              <span className="h-1.5 w-1.5 rotate-45 bg-[#b49a66]" />
-              <span className="h-px w-10 bg-[#d8c49b]" />
+              <span className="h-px w-12 bg-gradient-to-l from-transparent to-[#d8c49b]" />
+              <span className="h-2 w-2 rotate-45 border border-[#b49a66] bg-[#f3e8d0] transition-transform duration-500 group-hover:rotate-90" />
+              <span className="h-px w-12 bg-gradient-to-r from-transparent to-[#d8c49b]" />
             </div>
           </div>
 
-          <div className="mb-6">
+          <div className="mb-5">
             <label className="mb-2.5 block text-sm font-semibold text-[#5c5140]">
               אימייל
             </label>
 
-            <input
-              type='email'
-              {...register("email")}
-              placeholder="name@example.com"
-              className="w-full rounded-lg border border-[#e3dccf] bg-[#fdfbf7] px-4 py-3.5 text-sm text-[#443b2e] outline-none transition duration-200 placeholder:text-[#b0a797] hover:border-[#c9b587] focus:border-[#ad9159] focus:bg-white focus:ring-4 focus:ring-[#d9c9a5]/20"
-            />
+            <div className="relative">
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#b09a70] transition-colors duration-300 peer-focus:text-[#8a6d3b]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5 w-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15A2.25 2.25 0 0 0 2.25 6.75m19.5 0-9.75 6.75L2.25 6.75" />
+                </svg>
+              </span>
+
+              <input
+                type='email'
+                {...register("email")}
+                placeholder="name@example.com"
+                className="peer w-full rounded-xl border border-[#e3dccf] bg-[#fdfbf7] py-4 pl-4 pr-12 text-sm text-[#443b2e] outline-none transition-all duration-300 placeholder:text-[#b0a797] hover:border-[#c9b587] focus:border-[#ad9159] focus:bg-white focus:ring-4 focus:ring-[#d9c9a5]/25"
+              />
+            </div>
 
             <p className="mt-1.5 min-h-5 text-sm text-red-600">
               {errors.email?.message}
             </p>
           </div>
 
-          <div className="mb-8">
+
+          <div className="mb-6">
             <label className="mb-2.5 block text-sm font-semibold text-[#5c5140]">
               סיסמה
             </label>
 
-            <input
-              type='password'
-              {...register("password")}
-              placeholder="הזן סיסמה"
-              className="w-full rounded-lg border border-[#e3dccf] bg-[#fdfbf7] px-4 py-3.5 text-sm text-[#443b2e] outline-none transition duration-200 placeholder:text-[#b0a797] hover:border-[#c9b587] focus:border-[#ad9159] focus:bg-white focus:ring-4 focus:ring-[#d9c9a5]/20"
-            />
+            <div className="relative">
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#b09a70]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5 w-5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 0 0-9 0v3.75m-.75 0h10.5A2.25 2.25 0 0 1 19.5 12.75v6A2.25 2.25 0 0 1 17.25 21H6.75a2.25 2.25 0 0 1-2.25-2.25v-6A2.25 2.25 0 0 1 6.75 10.5Z" />
+                </svg>
+              </span>
+
+              <input
+                type='password'
+                {...register("password")}
+                placeholder="הזן סיסמה"
+                className="w-full rounded-xl border border-[#e3dccf] bg-[#fdfbf7] py-4 pl-4 pr-12 text-sm text-[#443b2e] outline-none transition-all duration-300 placeholder:text-[#b0a797] hover:border-[#c9b587] focus:border-[#ad9159] focus:bg-white focus:ring-4 focus:ring-[#d9c9a5]/25"
+              />
+            </div>
 
             <p className="mt-1.5 min-h-5 text-sm text-red-600">
               {errors.password?.message}
             </p>
           </div>
-          <div>
-            <Link to={"/register"}
-              className="mt-6 mb-6 block text-center text-sm font-medium text-[#8a754c] underline-offset-4 transition-all duration-300 hover:text-[#514632] hover:underline focus:outline-none focus:ring-2 focus:ring-[#c9b587]/40 rounded-md"            >
-              אין לכם חשבון?להרשמה</Link>
+
+
+          <div className="mb-7 rounded-xl border border-[#e9e0ce]/80 bg-gradient-to-l from-[#faf6ed] to-[#fffefa] px-4 py-3.5 text-center transition-all duration-300 hover:border-[#d8c49b] hover:shadow-sm">
+            <Link
+              to={"/register"}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md text-sm font-medium text-[#8a754c] underline-offset-4 transition-all duration-300 hover:text-[#514632] hover:underline focus:outline-none focus:ring-2 focus:ring-[#c9b587]/40"
+            >
+              אין לכם חשבון?להרשמה
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-[-2px]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0-6.75-6.75M19.5 12l-6.75 6.75" />
+              </svg>
+            </Link>
           </div>
+
+
           <button
             type='submit'
             disabled={loginMutation.isPending}
-            className="group relative w-full overflow-hidden rounded-lg bg-[#514632] px-5 py-4 text-sm font-semibold tracking-wide text-white shadow-[0_6px_16px_rgba(81,70,50,0.15)] transition-all duration-300 hover:bg-[#76613c] hover:shadow-[0_9px_22px_rgba(81,70,50,0.22)] focus:outline-none focus:ring-4 focus:ring-[#c9b587]/35 active:scale-[0.99]"
+            className="group/button relative w-full overflow-hidden rounded-xl border border-[#66563c] bg-gradient-to-l from-[#514632] via-[#65543a] to-[#514632] px-5 py-4 text-sm font-semibold tracking-wide text-white shadow-[0_8px_20px_rgba(81,70,50,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#927648] hover:from-[#76613c] hover:via-[#8a7045] hover:to-[#76613c] hover:shadow-[0_12px_28px_rgba(81,70,50,0.26)] focus:outline-none focus:ring-4 focus:ring-[#c9b587]/35 active:translate-y-0 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <span className="relative z-10">התחברות {loginMutation.isPending && 'loading....'}</span>
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover/button:translate-x-full" />
+            <span className="relative z-10 inline-flex items-center justify-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="h-5 w-5 transition-transform duration-300 group-hover/button:translate-x-[-2px]">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6A2.25 2.25 0 0 0 5.25 5.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M18 15l3-3m0 0-3-3m3 3H9" />
+              </svg>
+              התחברות {loginMutation.isPending && 'loading....'}
+            </span>
           </button>
+
           {loginMutation.error && (
-            <p className="text-sm text-red-600">
+            <p className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-center text-sm leading-6 text-red-600">
               {loginMutation.error.response?.data?.error?.message ?? "אין חיבור לשרת. נסי שוב בעוד רגע"}
             </p>
           )}
+
+
+          <div className="mt-8 flex items-center justify-center gap-2 text-[9px] tracking-[0.25em] text-[#b09a70]/80">
+            <span className="h-px w-6 bg-[#d8c49b]/60" />
+            VELLORA · HOSPITALITY & COMFORT
+            <span className="h-px w-6 bg-[#d8c49b]/60" />
+          </div>
         </form>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { RouterProvider } from 'react-router'
 import routes from './routes/routes.tsx'
 import Userprovider from './context/userContext.tsx'
+import ScrollToTop from './components/scrollToTop.tsx'
 
 const queryClient = new QueryClient()
 createRoot(document.getElementById('root')!).render(
