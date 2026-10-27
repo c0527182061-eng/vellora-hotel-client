@@ -2,6 +2,7 @@
 import { Link, useParams, useSearchParams } from 'react-router'
 import { getRoomsById } from '../hooks/useQuery';
 import { AuthContext } from '../context/userContext';
+import noImage from "../../assets/no_image.png"
 
 export default function RoomDetailsPage() {
   const { roomId } = useParams();
@@ -50,7 +51,7 @@ export default function RoomDetailsPage() {
 
               <div className="relative overflow-hidden bg-[#f2ece1]">
                 <img
-                  src={data?.imageUrl ? `${data.imageUrl}` : "../src/assets/no_image.png"}
+                  src={data?.imageUrl ? `${data.imageUrl}` :noImage}
                   alt="תמונת החדר"
                   className="aspect-[4/3] w-full object-cover transition-transform duration-500 hover:scale-[1.02] sm:aspect-[16/10]"
                 />

@@ -1,6 +1,7 @@
 
 import { Link, useSearchParams } from 'react-router'
 import type { RoomCard } from '../../types/room'
+import noImage from "../../assets/no_image.png"
 
 export default function Card(r: RoomCard) {
 
@@ -11,7 +12,7 @@ export default function Card(r: RoomCard) {
             <div className="group flex h-[420px] flex-col overflow-hidden rounded-2xl border border-[#e8dfce] bg-[#fffefa] shadow-[0_8px_30px_rgba(75,60,38,0.07)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(75,60,38,0.14)]">
                 <div className="relative h-56 overflow-hidden bg-[#f0ebe1]">
                     <img
-                        src={r.imageUrl ? `${r.imageUrl}` : "../src/assets/no_image.png"}
+                        src={r.imageUrl ? `${r.imageUrl}` : noImage}
                         alt="תמונת החדר"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
