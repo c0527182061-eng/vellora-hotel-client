@@ -120,7 +120,7 @@ export default function AdminRoomsPage() {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-4 w-4">
                       <path d="M3 6h18M8 6V4h8v2m-9 0 1 14h8l1-14M10 10v6m4-6v6" />
                     </svg>
-                    {deleteRoom.isPending ? "מוחק..." : "מחיקת החדר"}
+                    {deleteErrorRoomId === r.id && deleteRoom.isPending ? "מוחק..." : "מחיקת החדר"}
                   </button>
                 </div>
 
