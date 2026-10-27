@@ -1,32 +1,70 @@
-# React + TypeScript + Vite
+VELLORA HOTEL – מערכת בקשות הזמנה לבית מלון
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+אתר לבית המלון VELLORA. מבקרים רואים את החדרים ומסננים אותם, לקוחות שולחים בקשות הזמנה, והמנהל מאשר או דוחה כל בקשה ומנהל את חדרי המלון.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+קישורים
+	כתובת
+האתר	https://vellora-hotel-client.onrender.com
+השרת (API)	https://vellora-hotel-api.onrender.com
+תיעוד ה־API (Swagger)	https://vellora-hotel-api.onrender.com/api-docs
+בדיקת תקינות השרת	https://vellora-hotel-api.onrender.com/api/health
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+משתמשי ברירת מחדל לבדיקה
+תפקיד	אימייל	סיסמה
+מנהל	admin@vellora.test	Admin1234
+לקוח	yossi@vellora.test	Customer1234
+לקוח	moshe@vellora.test	Customer1234
 
-## Expanding the Oxlint configuration
+אפשר גם להירשם כלקוח חדש דרך עמוד ההרשמה.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+נתוני הדגמה שקיימים במערכת:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+ חדרים מסוגים שונים (יחיד, זוגי, משפחתי, סוויטה). אחד מהם (104) מסומן "לא זמין", ולכן לקוחות לא רואים אותו.
+ הזמנות של יוסי ומשה: 2 ממתינות לאישור, 3 מאושרות ו־1 שנדחתה.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+תפקידים והרשאות
+מבקר שמנסה להגיע לעמוד שדורש התחברות מועבר לעמוד ההתחברות.
+
+זרימת המערכת
+מבקר ← לקוח
+עמוד הבית: רשימת כל החדרים הזמינים, עם תמונה, שם, סוג ותיאור.
+סינון ומיון: לפי תאריך כניסה ויציאה (מציג רק חדרים פנויים בתאריכים), סוג חדר, טווח מחיר, מספר אורחים. מיון לפי מספר חדר, מחיר או שם. הסינון נשמר בכתובת העמוד, ולכן לא נעלם ברענון.
+פרטי חדר: כל המידע על החדר וכפתור "בקשת הזמנה". מבקר שאינו מחובר מועבר להתחברות.
+הרשמה / התחברות: הרשמה עם אימות סיסמה. אחרי ההתחברות לקוח מועבר לעמוד הבית.
+לקוח ← בקשת הזמנה
+טופס בקשת הזמנה: מוצגים תמונת החדר ופרטיו. התאריכים מתמלאים אוטומטית מהסינון. ממלאים טלפון, ואם רוצים גם שם אורח והערות. המחיר הכולל (לילות × מחיר ללילה) מחושב ומוצג בזמן אמת.
+שליחה: הבקשה נשמרת בסטטוס "ממתינה לאישור". אם החדר כבר תפוס בחלק מהתאריכים, מוצגת הודעה ברורה ואפשר לבחור תאריכים אחרים.
+ההזמנות שלי: הלקוח רואה את כל הבקשות שלו ואת הסטטוס של כל אחת. החלטה של מנהל מופיעה כאן.
+מנהל ← טיפול בבקשות
+ניהול הזמנות: רשימת כל הבקשות, כולל פרטי הלקוח והחדר. הבקשות הממתינות מופיעות ראשונות.
+אישור או דחייה: הכפתורים מופיעים רק בבקשות ממתינות, ולפני כל פעולה מוצג חלון אישור. ההחלטה סופית. הרשימה מתעדכנת מיד, וגם הלקוח רואה את הסטטוס החדש.
+מנהל ← ניהול חדרים
+רשימת חדרים: כל החדרים, כולל חדרים לא זמינים.
+הוספה ועריכה: אותו טופס משמש לשתי הפעולות. בעריכה הוא מתמלא מראש בנתוני החדר. העלאת תמונה בגרירה או בבחירה, עם תצוגה מקדימה ובדיקה של סוג וגודל (עד 5MB). התמונה נשמרת ב־Cloudinary דרך השרת.
+זמין / לא זמין: חדר "לא זמין" (למשל בשיפוצים) נעלם מהלקוחות ולא ניתן להזמין אותו. ההזמנות הקיימות שלו נשארות.
+מחיקה: עם חלון אישור. אם לחדר יש הזמנה פעילה, השרת חוסם את המחיקה ומוצגת הודעה. אפשר במקום זאת לסמן אותו "לא זמין".
+חוקים עסקיים עיקריים
+הזמנה היא בקשה: כל הזמנה מתחילה כ"ממתינה", והמנהל מחליט. אחרי ההחלטה אי אפשר לשנות אותה.
+אין הזמנות חופפות: אי אפשר לשלוח בקשה לחדר שיש לו בקשה ממתינה או מאושרת באותם תאריכים. השרת בודק זאת גם כשנשלחות שתי בקשות באותו רגע.
+לקוח לא מבטל: לפי האפיון, אין ללקוח אפשרות לבטל בקשה.
+מחיר ננעל: בכל הזמנה נשמרים מספר החדר, השם והמחיר ללילה כפי שהיו ברגע השליחה. שינוי מחיר של חדר לא משפיע על הזמנות קיימות.
+חדר שנמחק: ההזמנות הישנות שלו נשארות בהיסטוריה. בכרטיס ההזמנה מוצג שהחדר הוסר מהמלון, ופרטים שכבר לא קיימים מוצגים כ־"--".
+טכנולוגיות
+תחום	כלים
+
+נתיבים
+נתיב	עמוד	גישה
+/	עמוד הבית: רשימת חדרים וסינון	כולם
+/rooms/:roomId	פרטי חדר	כולם
+/login	התחברות	כולם
+/register	הרשמה	כולם
+/rooms/:roomId/book	טופס בקשת הזמנה	לקוח
+/my-bookings	ההזמנות שלי	לקוח
+/admin/bookings	ניהול הזמנות	מנהל
+/admin/rooms	ניהול חדרים	מנהל
+/admin/rooms/new	הוספת חדר	מנהל
+/admin/rooms/:roomId/edit	עריכת חדר	מנהל
+*	עמוד לא נמצא (404)	כולם
+
