@@ -4,20 +4,26 @@ import Card from "../components/homePage/card"
 import { getAllRooms1 } from "../hooks/useQuery"
 import { deleteRoom1 } from "../hooks/useMutation"
 import { useQueryClient } from "@tanstack/react-query"
+import { useState } from "react"
 
 export default function AdminRoomsPage() {
   const { data, isLoading, error } = getAllRooms1()
   const queryClient = useQueryClient()
   const deleteRoom = deleteRoom1()
+  const [deleteErrorRoomId, setDeleteErrorRoomId] = useState<string | null>(null)
 
   const delete1 = (id: string) => {
     const text = "לאשר את המחיקה"
     if (!window.confirm(text)) return
+  setDeleteErrorRoomId(null)
 
     deleteRoom.mutate(id, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: ["getAllRooms"] })
-      }
+      },
+          onError: () => {
+      setDeleteErrorRoomId(id)
+    }
     })
   }
 
@@ -117,18 +123,16 @@ export default function AdminRoomsPage() {
                   </button>
                 </div>
 
+                {deleteErrorRoomId === r.id &&deleteRoom.error && (
+                  <p className="mx-2 mb-2 rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs leading-5 text-red-700">
+                    {deleteRoom.error?.response?.data?.error?.message}
+                  </p>
+                )}
               </div>
             ))}
           </div>
-
         )}
       </div>
-
-      {deleteRoom.error && (
-        <p className="mx-2 mb-2 rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs leading-5 text-red-700">
-          {deleteRoom.error?.response?.data?.error?.message}
-        </p>
-      )}
     </main>
   )
 }
