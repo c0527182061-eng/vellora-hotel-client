@@ -279,7 +279,7 @@ export default function RoomFormPage() {
               disabled={roomFormMutation.isPending}
               className="w-full rounded-xl bg-[#8b7653] px-6 py-4 font-semibold text-white shadow-md shadow-[#8b7653]/15 transition duration-300 hover:-translate-y-0.5 hover:bg-[#6f5d41] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#b08d57] focus:ring-offset-2"
             >
-              שמירת פרטי החדר
+              שמירת פרטי החדר{roomFormMutation.isPending && "השמירה מתבצעת"}
             </button>
           </div>
         </form>
