@@ -2,7 +2,7 @@
 import { Link, useParams, useSearchParams } from 'react-router'
 import { getRoomsById } from '../hooks/useQuery';
 import { AuthContext } from '../context/userContext';
-import noImage from "../../assets/no_image.png"
+import noImage from "../assets/no_image.png"
 
 export default function RoomDetailsPage() {
   const { roomId } = useParams();
