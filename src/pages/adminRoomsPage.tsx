@@ -117,16 +117,18 @@ export default function AdminRoomsPage() {
                   </button>
                 </div>
 
-                {deleteRoom.error && (
-                  <p className="mx-2 mb-2 rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs leading-5 text-red-700">
-                    {deleteRoom.error?.response?.data?.error?.message}
-                  </p>
-                )}
               </div>
             ))}
           </div>
+
         )}
       </div>
+
+      {deleteRoom.error && (
+        <p className="mx-2 mb-2 rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-xs leading-5 text-red-700">
+          {deleteRoom.error?.response?.data?.error?.message}
+        </p>
+      )}
     </main>
   )
 }
